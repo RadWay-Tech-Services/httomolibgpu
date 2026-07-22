@@ -749,7 +749,7 @@ def remove_stripe_fw(
         for c in cc:
             mem_stack.free(np.prod(c) * np.float32().itemsize)
         mem_stack.free(np.prod(sli_shape) * np.float32().itemsize)
-        return int(mem_stack.highwater * 1.1)
+        return int(mem_stack.highwater * 1.3)
 
     sli = cp.zeros(sli_shape, dtype="float32")
     sli[:, 0, (nproj_pad - nproj) // 2 : (nproj_pad + nproj) // 2] = data.swapaxes(0, 1)
